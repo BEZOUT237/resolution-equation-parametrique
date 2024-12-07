@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Résolution d'une équation paramétrique</title>
+</head>
+<body>
+    <h1>Résolution d'une équation paramétrique</h1>
+    <form id="parametricForm">
+        <label for="a1">Coefficient a1 :</label>
+        <input type="number" id="a1" required><br>
+
+        <label for="b1">Coefficient b1 :</label>
+        <input type="number" id="b1" required><br>
+
+        <label for="a2">Coefficient a2 :</label>
+        <input type="number" id="a2" required><br>
+
+        <label for="b2">Coefficient b2 :</label>
+        <input type="number" id="b2" required><br>
+
+        <label for="t">Valeur de t :</label>
+        <input type="number" id="t" required><br>
+
+        <button type="submit">Calculer</button>
+    </form>
+
+    <h2>Résultat :</h2>
+    <p id="result"></p>
+
+    <script>
+        document.getElementById('parametricForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Empêche l'envoi du formulaire
+
+            // Récupération des coefficients et de t
+            const a1 = parseFloat(document.getElementById('a1').value);
+            const b1 = parseFloat(document.getElementById('b1').value);
+            const a2 = parseFloat(document.getElementById('a2').value);
+            const b2 = parseFloat(document.getElementById('b2').value);
+            const t = parseFloat(document.getElementById('t').value);
+
+            // Calcul des valeurs x(t) et y(t)
+            const x = a1 * t + b1;
+            const y = a2 * t + b2;
+
+            // Affichage des résultats
+            document.getElementById('result').textContent = `x(${t}) = ${x}, y(${t}) = ${y}`;
+        });
+    </script>
+</body>
+</html>
